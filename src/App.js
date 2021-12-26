@@ -1,27 +1,34 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
+import { SnackbarProvider } from 'notistack';
+import { CssBaseline } from '@material-ui/core'
 
-import { NotFound, Home, Login, LupaPassword, Private, Registrasi } from './pages';
-import { FirebaseProvider, PrivateRoute } from './components';
-import theme from './config/theme';
+import theme from './configs/theme';
+import { NotFound, LandingPage, Login, LupaPassword, Registrasi } from './views/pages';
+import { Chat, Pengaturan } from './views';
+import { PrivateRoute } from './components';
+import { FirebaseProvider } from './contexts'
 
 function App() {
   return (
     <ThemeProvider theme={theme} >
-      <FirebaseProvider>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/registrasi" component={Registrasi} />
-            <Route path="/login" component={Login} />
-            <Route path="/lupa-password" component={LupaPassword} />
-            <PrivateRoute path="/chat" component={Private} />
-            <PrivateRoute path="/pengaturan" component={Private} />
-            <Route component={NotFound} />
-          </Switch>
-        </BrowserRouter>
-      </FirebaseProvider>
+      <SnackbarProvider maxSnack={3}>
+        <CssBaseline />
+        <FirebaseProvider>
+          <BrowserRouter>
+            <Switch>
+              <Route path="/" exact component={LandingPage} />
+              <Route path="/registrasi" component={Registrasi} />
+              <Route path="/login" component={Login} />
+              <Route path="/lupa-password" component={LupaPassword} />
+              <PrivateRoute path="/chat" component={Chat} />
+              <PrivateRoute path="/pengaturan" component={Pengaturan} />
+              <Route component={NotFound} />
+            </Switch>
+          </BrowserRouter>
+        </FirebaseProvider>
+      </SnackbarProvider>
     </ThemeProvider>
   );
 }

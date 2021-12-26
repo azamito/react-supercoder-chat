@@ -1,2 +1,3 @@
-export { default as FirebaseProvider } from './Auth/FirebaseProvider';
-export { default as PrivateRoute } from './Auth/PrivateRoute';
+export { default as AppLoading } from './AppLoading';
+export { default as PrivateRoute } from './PrivateRoute';
+export { default as TopBar } from './TopBar';
