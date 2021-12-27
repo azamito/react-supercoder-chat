@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "SuperCoder Chat - Aplikasi Chat Realtime",
+  "short_name": "Aplikasi Chat",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +18,10 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "landscape",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
